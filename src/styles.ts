@@ -5,12 +5,14 @@ const EstiloGlobal = createGlobalStyle`
     margin: 0;
     padding: 0;
     font-family: 'Inter', sans-serif;
+    list-style: none;
   }
 
   body {
     padding-top: 80px;
+
     @media (max-width: 768px) {
-      padding-top: 16px
+      padding-top: 16px;
     }
   }
 `

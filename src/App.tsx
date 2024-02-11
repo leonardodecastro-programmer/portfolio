@@ -1,4 +1,4 @@
-import Projetos from './containers/Projetos/indx'
+import Projetos from './containers/Projetos'
 import Sidebar from './containers/Sidebar'
 import Sobre from './containers/Sobre'
 import EstiloGlobal from './styles'

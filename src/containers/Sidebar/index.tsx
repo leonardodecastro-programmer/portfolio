@@ -10,8 +10,14 @@ type Props = {
   trocaTema: () => void
 }
 
+type UserData = {
+  login: string
+  name: string
+  bio: string
+}
+
 const Sidebar = (props: Props) => {
-  const [repos, setRepos] = useState([])
+  const [repos, setRepos] = useState<UserData | null>(null)
 
   useEffect(() => {
     fetch(`https://api.github.com/users/leonardodecastro-programmer`)
@@ -25,18 +31,18 @@ const Sidebar = (props: Props) => {
     <aside>
       <SidebarContainer>
         <Avatar />
-        {repos.map(({ login }) => (
+        {repos && (
           <>
-            <Titulo fontSize={20}>Leonardo de Castro</Titulo>
+            <Titulo fontSize={20}>{repos.name}</Titulo>
             <Paragrafo tipo="secundario" fontSize={16}>
-              {login}
+              {repos.login}
             </Paragrafo>
             <Descricao tipo="principal" fontSize={12}>
-              Desenvolvedor Full Stack Python
+              {repos.bio}
             </Descricao>
             <BotaoTema onClick={props.trocaTema}>Trocar Tema</BotaoTema>
           </>
-        ))}
+        )}
       </SidebarContainer>
     </aside>
   )
